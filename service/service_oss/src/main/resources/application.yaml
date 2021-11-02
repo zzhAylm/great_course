@@ -1,0 +1,18 @@
+server:
+  port: 8002
+spring:
+  application:
+    name: service-oss
+  profiles:
+    active: dev
+
+aliyun:
+  oss:
+    file:
+#      低于节点
+      endpoint: oss-cn-beijing.aliyuncs.com
+      keyid: LTAI5t6vH691eRBEZj1girmU
+      keysecret: oLan1Uvx2VfUHADijkLqTMYPwRPAq6
+#      bucket可以在控制台创建，也可以通过代码创建
+      bucketname: great-course
+
