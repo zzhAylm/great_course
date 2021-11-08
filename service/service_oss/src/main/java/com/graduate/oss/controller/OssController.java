@@ -29,6 +29,6 @@ public class OssController {
     public Result uploadOssFile(MultipartFile file){
 
         String url =ossService.uploadFileAvatar(file);
-        return Result.success().data("url",url);
+        return Result.success().message("文件上传成功").data("url",url);
     }
 }
