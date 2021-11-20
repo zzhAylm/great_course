@@ -8,8 +8,11 @@ spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
-
   #    mybatis-plus的日志
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 112.125.88.235:8848
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
@@ -28,3 +31,7 @@ mybatis-plus:
 logging:
   level:
     root: info
+#    服务熔断
+feign:
+  hystrix:
+    enabled: true

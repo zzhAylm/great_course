@@ -18,7 +18,7 @@
     <dependencies>
         <dependency>
             <groupId>com.graduate</groupId>
-            <artifactId>common_utills</artifactId>
+            <artifactId>common_utils</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>

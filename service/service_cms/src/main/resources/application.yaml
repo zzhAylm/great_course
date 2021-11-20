@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: servie-cms
+  profiles:
+    active: dev
+server:
+  port: 8004

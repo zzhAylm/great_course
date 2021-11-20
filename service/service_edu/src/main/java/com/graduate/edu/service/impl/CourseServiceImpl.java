@@ -6,9 +6,12 @@ import com.graduate.edu.pojo.Course;
 import com.graduate.edu.mapper.CourseMapper;
 import com.graduate.edu.pojo.CourseDescription;
 import com.graduate.edu.pojo.vo.CourseInfoVo;
+import com.graduate.edu.pojo.vo.CoursePublishVo;
+import com.graduate.edu.service.ChapterService;
 import com.graduate.edu.service.CourseDescriptionService;
 import com.graduate.edu.service.CourseService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.graduate.edu.service.VideoService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
@@ -29,6 +32,13 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
 
     @Resource
     private CourseDescriptionService courseDescriptionService;
+
+    @Resource
+    private VideoService videoService;
+    @Resource
+    private ChapterService chapterService;
+
+
     @Override
     public String saveCourseInfo(CourseInfoVo courseInfoVo) {
 //       1. 添加课程信息
@@ -59,6 +69,27 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
         CourseDescription courseDescription = courseDescriptionService.getById(courseId);
         courseInfoVo.setDescription(courseDescription.getDescription());
         return courseInfoVo;
+    }
+
+    @Override
+    public CoursePublishVo getCoursePublishVoById(String id) {
+        return baseMapper.selectCoursePublishVoById(id);
+    }
+
+//    删除课程信息
+    @Override
+    public void removeCourse(String courseId) {
+//        删除小节
+        videoService.removeVideoByCourseId(courseId);
+//        删除章节
+        chapterService.removeChapterByCourseId(courseId);
+//        删除课程描述
+            courseDescriptionService.removeById(courseId);
+//        删除课程本身
+        int delete = baseMapper.deleteById(courseId);
+        if (delete==0){
+            throw new MyException(500,"课程删除失败");
+        }
     }
 
     @Override

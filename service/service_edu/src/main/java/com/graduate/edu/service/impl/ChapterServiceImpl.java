@@ -68,6 +68,13 @@ public class ChapterServiceImpl extends ServiceImpl<ChapterMapper, Chapter> impl
     }
 
     @Override
+    public void removeChapterByCourseId(String courseId) {
+        QueryWrapper<Chapter> wrapper = new QueryWrapper<>();
+        wrapper.eq("course_id", courseId);
+       baseMapper.delete(wrapper);
+    }
+
+    @Override
     public Boolean deleteChapter(String chapterId) {
 
 //        如果章节中有小结，就不能进行删除，需要删除小结后才能删除章节
