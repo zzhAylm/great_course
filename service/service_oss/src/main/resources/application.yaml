@@ -8,11 +8,11 @@ spring:
 
 aliyun:
   oss:
-    file:
+   file:
 #      低于节点
-      endpoint: oss-cn-beijing.aliyuncs.com
-      keyid: LTAI5t6vH691eRBEZj1girmU
-      keysecret: oLan1Uvx2VfUHADijkLqTMYPwRPAq6
+      endpoint: 地域节点
+      keyid: 你的访问ID
+      keysecret: 访问密钥
 #      bucket可以在控制台创建，也可以通过代码创建
-      bucketname: great-course
+      bucketname: bucket名称
 
