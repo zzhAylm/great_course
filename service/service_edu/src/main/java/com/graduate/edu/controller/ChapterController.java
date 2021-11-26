@@ -2,13 +2,17 @@ package com.graduate.edu.controller;
 
 
 import com.graduate.edu.pojo.Chapter;
+import com.graduate.edu.pojo.frontvo.FrontCourseWebVo;
 import com.graduate.edu.pojo.vo.ChapterVo;
 import com.graduate.edu.service.ChapterService;
+import com.graduate.utils.JwtUtils;
 import com.graduate.utils.Result;
+import io.swagger.annotations.Api;
 import org.springframework.scheduling.support.SimpleTriggerContext;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -19,6 +23,7 @@ import java.util.List;
  * @author 张紫韩
  * @since 2021-11-03
  */
+@Api(description = "小节管理控制类")
 @RestController
 @RequestMapping("/edu/chapter")
 @CrossOrigin
@@ -26,6 +31,8 @@ public class ChapterController {
 
     @Resource
     private ChapterService chapterService;
+
+
 
 //    得到某个课程的章节和小结
     @GetMapping("/getChapterVideo/{courseId}")

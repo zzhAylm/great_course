@@ -7,11 +7,15 @@ import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.graduate.edu.enums.CourseStatusEnum;
 import com.graduate.edu.pojo.Course;
+import com.graduate.edu.pojo.frontvo.FrontCourseWebVo;
+import com.graduate.edu.pojo.vo.ChapterVo;
 import com.graduate.edu.pojo.vo.CourseInfoVo;
 import com.graduate.edu.pojo.vo.CoursePublishVo;
 import com.graduate.edu.pojo.vo.CourseQueryVo;
+import com.graduate.edu.service.ChapterService;
 import com.graduate.edu.service.CourseService;
 import com.graduate.utils.Result;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.apache.poi.util.StringUtil;
@@ -29,6 +33,7 @@ import java.util.List;
  * @author 张紫韩
  * @since 2021-11-03
  */
+@Api(description = "课程管理")
 @RestController
 @RequestMapping("/edu/course")
 @CrossOrigin
@@ -63,10 +68,10 @@ public class CourseController {
         QueryWrapper<Course> wrapper = new QueryWrapper<>();
         String title = courseQueryVo.getTitle();
         String status = courseQueryVo.getStatus();
-        if (!StringUtils.isEmpty(title)){
+        if (!StringUtils.isEmpty(title)) {
             wrapper.eq("title", title);
         }
-        if (!StringUtils.isEmpty(status)){
+        if (!StringUtils.isEmpty(status)) {
             wrapper.eq("status", status);
         }
         IPage<Course> courseIPage = courseService.page(page, wrapper);
@@ -117,9 +122,9 @@ public class CourseController {
 
     }
 
-//    删除课程
+    //    删除课程
     @DeleteMapping("/delete/{courseId}")
-    public Result deleteCourse(@PathVariable String courseId){
+    public Result deleteCourse(@PathVariable String courseId) {
 
 
         courseService.removeCourse(courseId);

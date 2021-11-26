@@ -1,6 +1,6 @@
 spring:
   application:
-    name: servie-cms
+    name: service-cms
   profiles:
     active: dev
 server:

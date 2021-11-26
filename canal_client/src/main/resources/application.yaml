@@ -1,0 +1,18 @@
+server:
+  port: 10000
+spring:
+  application:
+    name: canal-client
+  profiles:
+    active: dev
+
+  batch:
+    job:
+      enabled: false
+  datasource:
+    url: jdbc:mysql://112.125.88.235:3306/great_course?characterEncoding=UTF-8&serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+

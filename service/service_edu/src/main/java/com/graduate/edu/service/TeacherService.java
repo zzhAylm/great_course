@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.graduate.edu.pojo.Teacher;
 
 import java.io.Serializable;
+import java.util.HashMap;
 
 /**
  * <p>
@@ -15,5 +16,7 @@ import java.io.Serializable;
  */
 public interface TeacherService extends IService<Teacher> {
     boolean removeById(Serializable id);
+
+    HashMap<String,Object> pageList(Long current,Long limit);
 
 }

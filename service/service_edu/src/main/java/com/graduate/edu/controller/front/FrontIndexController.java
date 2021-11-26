@@ -6,16 +6,18 @@ import com.graduate.edu.pojo.Teacher;
 import com.graduate.edu.service.CourseService;
 import com.graduate.edu.service.TeacherService;
 import com.graduate.utils.Result;
+import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * @Description:测试类
+ * @Description:客户端首页控制类
  * @Author: 张紫韩
  * @Crete 2021/11/14 19:09
  */
+@Api(description = "前端首页数据控制类")
 @RestController
 @CrossOrigin
 @RequestMapping("/edu/front")

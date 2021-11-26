@@ -1,7 +1,9 @@
 package com.graduate.edu.mapper;
 
+import com.graduate.edu.controller.front.FrontCourseController;
 import com.graduate.edu.pojo.Course;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.graduate.edu.pojo.frontvo.FrontCourseWebVo;
 import com.graduate.edu.pojo.vo.CoursePublishVo;
 
 /**
@@ -14,5 +16,6 @@ import com.graduate.edu.pojo.vo.CoursePublishVo;
  */
 public interface CourseMapper extends BaseMapper<Course> {
     CoursePublishVo selectCoursePublishVoById(String id);
+    FrontCourseWebVo selectInfoWebById(String courseId);
 
 }

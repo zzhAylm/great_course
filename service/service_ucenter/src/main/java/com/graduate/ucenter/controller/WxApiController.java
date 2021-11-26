@@ -26,7 +26,7 @@ import java.util.HashMap;
 
 @CrossOrigin
 @Controller//注意这里没有配置 @RestController
-@RequestMapping("/api/ucenter/wx")
+@RequestMapping("/ucenter/wx")
 public class WxApiController {
 
     @Resource

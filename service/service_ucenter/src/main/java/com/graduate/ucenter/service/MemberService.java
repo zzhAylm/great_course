@@ -23,4 +23,6 @@ public interface MemberService extends IService<Member> {
     LoginInfoVo getLoginInfo(String memberId);
 
     Member getByOpenid(String openid);
+
+    Integer countRegisterByDay(String day);
 }

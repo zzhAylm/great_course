@@ -7,6 +7,7 @@ import com.graduate.edu.feign.VodClient;
 import com.graduate.edu.pojo.Video;
 import com.graduate.edu.service.VideoService;
 import com.graduate.utils.Result;
+import io.swagger.annotations.Api;
 import org.apache.poi.util.StringUtil;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,6 +21,7 @@ import javax.annotation.Resource;
  * @author 张紫韩
  * @since 2021-11-03
  */
+@Api(description = "视频管理")
 @RestController
 @RequestMapping("/edu/video")
 @CrossOrigin

@@ -32,6 +32,13 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
     @Resource
     private RedisTemplate<String, String> redisTemplate;
 
+    @Override
+    public Integer countRegisterByDay(String day) {
+
+
+        return baseMapper.selectRegisterCount(day);
+    }
+
     /**
      * 会员登录
      *
