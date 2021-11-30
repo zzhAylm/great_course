@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @Api(description = "登录管理")
 @RestController
 @RequestMapping("/edu/user")
-@CrossOrigin  //解决跨域问题的注解
+//@CrossOrigin  //解决跨域问题的注解
 @Slf4j
 public class LoginController {
 

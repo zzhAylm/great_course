@@ -24,7 +24,7 @@ import java.util.HashMap;
  * @Crete 2021/11/19 20:09
  */
 
-@CrossOrigin
+//@CrossOrigin
 @Controller//注意这里没有配置 @RestController
 @RequestMapping("/ucenter/wx")
 public class WxApiController {

@@ -27,7 +27,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @RestController
 @RequestMapping("/ucenter/member")
-@CrossOrigin
+//@CrossOrigin
 public class MemberController {
     @Resource
     private MemberService memberService;

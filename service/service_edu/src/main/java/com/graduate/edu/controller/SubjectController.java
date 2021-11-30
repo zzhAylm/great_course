@@ -24,7 +24,7 @@ import java.util.List;
 @Api(description = "课程分类管理")
 @RestController
 @RequestMapping("/edu/subject")
-@CrossOrigin
+//@CrossOrigin
 //分类管理
 public class SubjectController {
 

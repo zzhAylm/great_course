@@ -26,7 +26,7 @@ import java.util.List;
  * @author 张紫韩
  * @since 2021-10-22
  */
-@CrossOrigin
+//@CrossOrigin
 @Api(description = "讲师管理")
 @RestController
 @EnableTransactionManagement

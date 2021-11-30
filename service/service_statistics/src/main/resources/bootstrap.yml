@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: service-statistics
+  profiles:
+    active: dev
+
+  cloud:
+    nacos:
+      config:
+        server-addr: 112.125.88.235:8848
+        file-extension: yml
+        namespace: 12294812-0ebf-428b-9fdf-8f4b6b90c0b2
+
+
+

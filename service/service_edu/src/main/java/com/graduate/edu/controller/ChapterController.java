@@ -26,7 +26,7 @@ import java.util.List;
 @Api(description = "小节管理控制类")
 @RestController
 @RequestMapping("/edu/chapter")
-@CrossOrigin
+//@CrossOrigin
 public class ChapterController {
 
     @Resource

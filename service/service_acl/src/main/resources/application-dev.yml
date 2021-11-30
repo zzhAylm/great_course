@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    url: jdbc:mysql://112.125.88.235:3306/great_course?characterEncoding=UTF-8&serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  #    mybatis-plus的日志
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 112.125.88.235:8848
+
+  redis:
+    port: 6379
+    host: 112.125.88.235
+
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+  mapper-locations: classpath*:/com/graduate/acl/mapper/xml/*.xml

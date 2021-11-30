@@ -24,7 +24,7 @@ import javax.annotation.Resource;
 @Api(description = "视频管理")
 @RestController
 @RequestMapping("/edu/video")
-@CrossOrigin
+//@CrossOrigin
 public class VideoController {
 
     @Resource

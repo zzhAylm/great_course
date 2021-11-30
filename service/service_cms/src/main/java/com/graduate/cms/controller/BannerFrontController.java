@@ -25,7 +25,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/cms/banner")
-@CrossOrigin
+//@CrossOrigin
 public class BannerFrontController {
 
     @Resource

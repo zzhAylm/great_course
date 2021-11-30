@@ -31,7 +31,7 @@ import java.util.Objects;
 @Api(description = "客户端课程管理")
 @RestController
 @RequestMapping("/edu/front/course")
-@CrossOrigin
+//@CrossOrigin
 public class FrontCourseController {
 
     @Resource

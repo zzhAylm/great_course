@@ -18,7 +18,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/statistics/daily")
-@CrossOrigin
+//@CrossOrigin
 public class DailyController {
 
     @Resource

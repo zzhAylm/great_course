@@ -23,7 +23,7 @@ import java.util.List;
 @Api(description = "前端讲师管理")
 @RestController
 @RequestMapping("/edu/front/teacher")
-@CrossOrigin
+//@CrossOrigin
 public class FrontTeacherController {
 
     @Resource

@@ -30,7 +30,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/edu/comment")
-@CrossOrigin
+//@CrossOrigin
 public class CommentController {
 
     @Resource

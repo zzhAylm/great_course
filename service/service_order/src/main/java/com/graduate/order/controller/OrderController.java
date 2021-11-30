@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @RestController
 @RequestMapping("/order/order")
-@CrossOrigin
+//@CrossOrigin
 public class OrderController {
 
     @Resource

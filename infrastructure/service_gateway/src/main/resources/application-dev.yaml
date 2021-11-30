@@ -1,0 +1,48 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 112.125.88.235:8848
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes: #      设置服务 service-acl
+      - id: service-acl #设置路由id
+        uri: lb://service-acl # 设置路由的uri  ： lb://服务名称
+        predicates:
+        - Path=/*/acl/** # 设置路由断言，代理 serverId 为 auth-service的 路径
+      - id: service-edu
+        uri: lb://service-edu
+        predicates:
+        - Path=/edu/** # 路径匹配
+      - id: service-ucenter
+        uri: lb://service-ucenter
+        predicates:
+        - Path=/ucenter/** # 路径匹配
+      - id: service-cms
+        uri: lb://service-cms
+        predicates:
+        - Path=/cms/** # 路径匹配
+      - id: service-msm
+        uri: lb://service-msm
+        predicates:
+        - Path=/msm/** # 路径匹配
+      - id: service-order
+        uri: lb://service-order
+        predicates:
+        - Path=/order/** # 路径匹配
+      - id: service-oss
+        uri: lb://service-oss
+        predicates:
+        - Path=/oss/** # 路径匹配
+      - id: service-statistics
+        uri: lb://service-statistics
+        predicates:
+        - Path=/statistics/** # 路径匹配
+      - id: service-vod
+        uri: lb://service-vod
+        predicates:
+        - Path=/vod/** # 路径匹配
+
+

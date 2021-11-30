@@ -17,7 +17,7 @@ import javax.annotation.Resource;
  * @Crete 2021/10/30 18:07
  */
 @Api(description = "Oss文件上传")
-@CrossOrigin
+//@CrossOrigin
 @RestController
 @RequestMapping("/oss/file")
 public class OssController {

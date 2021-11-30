@@ -19,7 +19,7 @@ import java.util.List;
  */
 @Api(description = "前端首页数据控制类")
 @RestController
-@CrossOrigin
+//@CrossOrigin
 @RequestMapping("/edu/front")
 public class FrontIndexController {
 

@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
  * @Crete 2021/11/15 23:31
  */
 @RestController
-@CrossOrigin
+//@CrossOrigin
 @RequestMapping("/msm/message")
 public class MsmController {
 
