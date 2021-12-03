@@ -54,7 +54,9 @@ public class CourseController {
     public Result getPageCourseList(@PathVariable Integer current,
                                     @PathVariable Integer limit) {
         Page<Course> page = new Page<>(current, limit);
-        IPage<Course> courseIPage = courseService.page(page, null);
+        QueryWrapper<Course> wrapper = new QueryWrapper<>();
+        wrapper.orderByDesc("gmt_modified");
+        IPage<Course> courseIPage = courseService.page(page, wrapper);
         return Result.success().data("list", courseIPage.getRecords()).data("total", courseIPage.getTotal());
     }
 
@@ -66,16 +68,17 @@ public class CourseController {
         Page<Course> page = new Page<>(current, limit);
 
         QueryWrapper<Course> wrapper = new QueryWrapper<>();
+        wrapper.orderByDesc("gmt_modified");
         String title = courseQueryVo.getTitle();
         String status = courseQueryVo.getStatus();
         if (!StringUtils.isEmpty(title)) {
-            wrapper.eq("title", title);
+            wrapper.like("title",title);
         }
         if (!StringUtils.isEmpty(status)) {
             wrapper.eq("status", status);
         }
         IPage<Course> courseIPage = courseService.page(page, wrapper);
-        return Result.success().data("page", courseIPage.getRecords()).data("total", courseIPage.getTotal());
+        return Result.success().data("list", courseIPage.getRecords()).data("total", courseIPage.getTotal());
     }
 
     @PostMapping("/add")

@@ -55,6 +55,7 @@ public class UserController {
             wrapper.like("username",userQueryVo.getUsername());
         }
 
+        wrapper.orderByDesc("gmt_modified");
         IPage<User> pageModel = userService.page(pageParam, wrapper);
         return Result.success().data("items", pageModel.getRecords()).data("total", pageModel.getTotal());
     }
@@ -67,6 +68,13 @@ public class UserController {
         return Result.success();
     }
 
+    @GetMapping("/get/{id}")
+    public Result getById(@PathVariable String id){
+        User user = userService.getById(id);
+        String password = user.getPassword();
+        user.setPassword(password);
+        return Result.success().data("user", user);
+    }
     @ApiOperation(value = "修改管理用户")
     @PutMapping("/update")
     public Result updateById(@RequestBody User user) {
