@@ -1,5 +1,6 @@
 package com.graduate.vod.controller;
 
+import com.aliyun.oss.ClientException;
 import com.aliyuncs.DefaultAcsClient;
 import com.aliyuncs.vod.model.v20170321.GetVideoPlayAuthRequest;
 import com.aliyuncs.vod.model.v20170321.GetVideoPlayAuthResponse;
@@ -70,20 +71,25 @@ public class VodController {
     @ApiOperation("获取视频播放凭证")
     @GetMapping("getPlayAuth/{videoId}")
     public Result getVideoPlayAuth(@PathVariable("videoId") String videoId) throws Exception {
-        //获取阿里云存储相关常量
-        String accessKeyId = ConstantVodUtil.KEY_ID;
-        String accessKeySecret =ConstantVodUtil.KEY_SECRET;
-        //初始化
-        DefaultAcsClient client = InitVodClient.initVodClient(accessKeyId, accessKeySecret);
-        //请求
-        GetVideoPlayAuthRequest request = new GetVideoPlayAuthRequest();
-        request.setVideoId(videoId);
-        //响应
-        GetVideoPlayAuthResponse response = client.getAcsResponse(request);
-        //得到播放凭证
-        String playAuth = response.getPlayAuth();
-        //返回结果
-        return Result.success().message("获取凭证成功").data("playAuth", playAuth);
+        try {
+            //获取阿里云存储相关常量
+            String accessKeyId = ConstantVodUtil.KEY_ID;
+            String accessKeySecret =ConstantVodUtil.KEY_SECRET;
+            //初始化
+            DefaultAcsClient client = InitVodClient.initVodClient(accessKeyId, accessKeySecret);
+            //请求
+            GetVideoPlayAuthRequest request = new GetVideoPlayAuthRequest();
+            request.setVideoId(videoId);
+            //响应
+            GetVideoPlayAuthResponse response = client.getAcsResponse(request);
+            //得到播放凭证
+            String playAuth = response.getPlayAuth();
+            //返回结果
+            return Result.success().message("获取凭证成功").data("playAuth", playAuth);
+        } catch (ClientException e) {
+            e.printStackTrace();
+            return Result.error();
+        }
     }
 
 }

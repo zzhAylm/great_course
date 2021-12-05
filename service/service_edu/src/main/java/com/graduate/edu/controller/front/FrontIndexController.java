@@ -34,14 +34,14 @@ public class FrontIndexController {
     public Result index(){
 
         QueryWrapper<Course> wrapper = new QueryWrapper<>();
-        wrapper.orderByDesc("id");
         wrapper.last("limit 8");
+        wrapper.orderByDesc("gmt_modified");
         List<Course> courseList = courseService.list(wrapper);
 
 
         QueryWrapper<Teacher> teacherWrapper = new QueryWrapper<>();
-        teacherWrapper.orderByDesc("id");
         teacherWrapper.last("limit 4");
+        teacherWrapper.orderByDesc("gmt_modified");
         List<Teacher> teacherList = teacherService.list(teacherWrapper);
 
         return Result.success().data("courseList", courseList).data("teacherList", teacherList);

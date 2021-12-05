@@ -59,7 +59,11 @@ public class MemberController {
             throw new MyException(500, "error");
         }
     }
-
+    @PostMapping("/update")
+    public Result update(@RequestBody Member member){
+        memberService.update(member, null);
+        return Result.success();
+    }
 
     @GetMapping("/getUcenterVo/{memberId}")
     public UcenterMemberVo getUcenterMemberVo(@PathVariable("memberId") String memberId) {
@@ -69,7 +73,15 @@ public class MemberController {
         BeanUtils.copyProperties(member, memberPay);
         return memberPay;
     }
-
+    /**
+     * 获取用户信息
+     * */
+    @PostMapping("/getInfo")
+    public Result getUCenter(HttpServletRequest request) {
+        //根据用户id获取用户信息
+        String memberId = JwtUtils.getMemberIdByJwtToken(request);
+        return Result.success().data("member",memberService.getById(memberId));
+    }
 
     @PostMapping("/getInfoUc/{id}")
     public Member getInfo(@PathVariable String id) {

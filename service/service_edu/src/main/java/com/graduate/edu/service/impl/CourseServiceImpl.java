@@ -124,6 +124,9 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
         Page<Course> pageParam = new Page<>(current, limit);
 
         QueryWrapper<Course> queryWrapper = new QueryWrapper<>();
+        if (!StringUtils.isEmpty(courseVo.getTitle())) {
+            queryWrapper.like("title", courseVo.getTitle());
+        }
         if (!StringUtils.isEmpty(courseVo.getSubjectParentId())) {
             queryWrapper.eq("subject_parent_id", courseVo.getSubjectParentId());
         }
@@ -139,6 +142,7 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
         if (!StringUtils.isEmpty(courseVo.getPriceSort())) {
             queryWrapper.orderByDesc("price");
         }
+        queryWrapper.orderByDesc("gmt_modified");
         baseMapper.selectPage(pageParam, queryWrapper);
         List<Course> records = pageParam.getRecords();
         long pages = pageParam.getPages();
