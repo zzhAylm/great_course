@@ -3,6 +3,8 @@ package com.graduate.order.mapper;
 import com.graduate.order.pojo.Order;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
+import java.util.List;
+
 /**
  * <p>
  * 订单 Mapper 接口
@@ -13,4 +15,5 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface OrderMapper extends BaseMapper<Order> {
 
+    List<Order> selectDayNum(String day);
 }

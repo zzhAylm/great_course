@@ -1,0 +1,32 @@
+2021-12-02 00:56:17.301 [main] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2021-12-02 00:56:17.301 [main] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2021-12-02 01:00:55.995 [http-nio-8001-exec-3] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@2e44f743 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-12-02 01:00:55.995 [http-nio-8001-exec-1] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@3daaf14b (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-12-02 01:01:01.014 [http-nio-8001-exec-3] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@33c7502a (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-12-02 01:01:01.014 [http-nio-8001-exec-1] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@5114e206 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-12-02 01:01:01.518 [http-nio-8001-exec-5] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@5fc3aae8 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-12-02 01:01:01.931 [http-nio-8001-exec-7] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@7e714e59 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-12-02 01:01:06.035 [http-nio-8001-exec-1] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@21b81db3 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-12-02 01:01:06.035 [http-nio-8001-exec-3] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@1f455554 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-12-02 01:01:06.536 [http-nio-8001-exec-5] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@117d1ab5 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-12-02 01:01:06.944 [http-nio-8001-exec-7] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@12771f00 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-12-02 09:33:27.791 [main] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2021-12-02 09:33:27.828 [main] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2021-12-02 09:54:58.000 [main] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2021-12-02 09:54:58.010 [main] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2021-12-02 09:55:37.724 [main] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2021-12-02 09:55:37.729 [main] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2021-12-02 09:58:26.441 [main] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2021-12-02 09:58:26.446 [main] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2021-12-02 10:28:18.003 [http-nio-8001-exec-4] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@60f27e99 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-12-02 10:28:22.381 [http-nio-8001-exec-6] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@1ad01da3 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-12-02 10:30:53.459 [main] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2021-12-02 10:30:53.465 [main] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2021-12-02 10:32:16.234 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=53s636ms990µs300ns).
+2021-12-02 10:33:09.452 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=53s222ms970µs999ns).
+2021-12-02 10:33:20.170 [main] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2021-12-02 10:33:20.174 [main] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2021-12-02 10:38:45.534 [main] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2021-12-02 10:38:45.539 [main] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2021-12-02 10:41:05.912 [main] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2021-12-02 10:41:05.916 [main] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.

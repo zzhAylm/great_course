@@ -12,6 +12,7 @@ import com.graduate.order.utils.OrderNoUtil;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * <p>
@@ -66,5 +67,11 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         baseMapper.insert(order);
 
         return order.getOrderNo();
+    }
+
+    @Override
+    public List<Order> getDayNum(String day) {
+
+       return baseMapper.selectDayNum(day);
     }
 }

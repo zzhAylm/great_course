@@ -2,6 +2,7 @@ package com.graduate.statistics.pojo;
 
 import com.baomidou.mybatisplus.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
@@ -45,6 +46,9 @@ public class Daily implements Serializable {
 
     @ApiModelProperty(value = "每日新增课程数")
     private Integer courseNum;
+
+    private Integer orderNum;
+    private BigDecimal consumerNum;
 
     @ApiModelProperty(value = "创建时间")
     @TableField(fill = FieldFill.INSERT)

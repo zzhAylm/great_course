@@ -1,6 +1,7 @@
 package com.graduate.statistics.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.graduate.statistics.client.OrderClient;
 import com.graduate.statistics.client.UcenterClient;
 import com.graduate.statistics.pojo.Daily;
 import com.graduate.statistics.mapper.DailyMapper;
@@ -10,6 +11,7 @@ import org.apache.commons.lang3.RandomUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -30,6 +32,9 @@ public class DailyServiceImpl extends ServiceImpl<DailyMapper, Daily> implements
     @Resource
     private UcenterClient ucenterClient;
 
+    @Resource
+    private OrderClient orderClient;
+
     @Override
     public void createStatisticsByDay(String day) {
         //删除已存在的统计对象
@@ -41,6 +46,8 @@ public class DailyServiceImpl extends ServiceImpl<DailyMapper, Daily> implements
         Integer loginNum = RandomUtils.nextInt(100, 200);//TODO
         Integer videoViewNum = RandomUtils.nextInt(100, 200);//TODO
         Integer courseNum = RandomUtils.nextInt(100, 200);//TODO
+        Integer orderNum= (Integer) orderClient.orderNum(day).getData().get("orderNum");
+        BigDecimal consumerNum= (BigDecimal) orderClient.orderNum(day).getData().get("consumerNum");
         //创建统计对象
         Daily daily = new Daily();
         daily.setRegisterNum(registerNum);
@@ -48,6 +55,8 @@ public class DailyServiceImpl extends ServiceImpl<DailyMapper, Daily> implements
         daily.setVideoViewNum(videoViewNum);
         daily.setCourseNum(courseNum);
         daily.setDateCalculated(day);
+        daily.setOrderNum(orderNum);
+        daily.setConsumerNum(consumerNum);
         baseMapper.insert(daily);
     }
 
@@ -76,6 +85,12 @@ public class DailyServiceImpl extends ServiceImpl<DailyMapper, Daily> implements
                     break;
                 case "course_num":
                     dataList.add(daily.getCourseNum());
+                    break;
+                case "order_num":
+                    dataList.add(daily.getOrderNum());
+                    break;
+                case "consumer_num":
+                    dataList.add(daily.getConsumerNum().toBigInteger().intValue());
                     break;
                 default:
                     break;

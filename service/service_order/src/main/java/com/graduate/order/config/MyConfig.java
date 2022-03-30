@@ -18,5 +18,9 @@ import org.springframework.context.annotation.Configuration;
 // 加载其他包中的配置类到容器中
 @ComponentScan(basePackages = {"com.graduate.base"})
 public class MyConfig {
-
+    //    mybatis-plus的分页插件
+    @Bean
+    public PaginationInterceptor paginationInterceptor() {
+        return new PaginationInterceptor();
+    }
 }

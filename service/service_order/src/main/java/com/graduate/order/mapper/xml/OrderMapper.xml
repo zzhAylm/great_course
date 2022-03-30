@@ -2,4 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.graduate.order.mapper.OrderMapper">
 
+    <select id="selectDayNum" resultType="com.graduate.order.pojo.Order">
+        select count(*) from t_order where TO_DAYS(gmt_create)=TO_DAYS(#{day})
+    </select>
 </mapper>

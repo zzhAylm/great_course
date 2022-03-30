@@ -1,8 +1,13 @@
 package com.graduate.order.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.graduate.order.pojo.LearnLog;
 import com.graduate.order.pojo.Order;
+import com.graduate.order.pojo.vo.OrderPage;
 import com.graduate.order.service.OrderService;
 import com.graduate.utils.JwtUtils;
 import com.graduate.utils.Result;
@@ -12,6 +17,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * <p>
@@ -60,5 +67,72 @@ public class OrderController {
         return count > 0;
     }
 
+    @GetMapping("/getOrder/{memberId}")
+    public Result  getOrderByMemberId(@PathVariable String memberId){
+        QueryWrapper<Order> wrapper = new QueryWrapper<>();
+        wrapper.eq("member_id", memberId);
+       return Result.success().data("item",orderService.list(wrapper));
+    }
+
+    @PostMapping("/page")
+    public Result pageCondition(@RequestBody OrderPage orderPage,HttpServletRequest request){
+        QueryWrapper<Order> wrapper = new QueryWrapper<>();
+        Page<Order> page = new Page<>(orderPage.getCurrent(), orderPage.getSize());
+        wrapper.eq("member_id", JwtUtils.getMemberIdByJwtToken(request));
+        if (StringUtils.isNotBlank(orderPage.getTeacherName())){
+            wrapper.eq("teacher_name", orderPage.getTeacherName());
+        }
+        if (StringUtils.isNotBlank(orderPage.getCourseTitle())){
+            wrapper.eq("course_title", orderPage.getCourseTitle());
+        }
+        IPage<Order> iPage = orderService.page(page, wrapper);
+        return Result.success().data("item",iPage.getRecords()).data("total",iPage.getTotal());
+    }
+
+    @PostMapping("/admin/page")
+    public Result page(@RequestBody OrderPage orderPage){
+        QueryWrapper<Order> wrapper = new QueryWrapper<>();
+        Page<Order> page = new Page<>(orderPage.getCurrent(), orderPage.getSize());
+
+        if (StringUtils.isNotBlank(orderPage.getMemberName())){
+            wrapper.eq("nickname", orderPage.getMemberName());
+        }
+        if (StringUtils.isNotBlank(orderPage.getTeacherName())){
+            wrapper.eq("teacher_name", orderPage.getTeacherName());
+        }
+        if (StringUtils.isNotBlank(orderPage.getCourseTitle())){
+            wrapper.eq("course_title", orderPage.getCourseTitle());
+        }
+        IPage<Order> iPage = orderService.page(page, wrapper);
+        return Result.success().data("item",iPage.getRecords()).data("total",iPage.getTotal());
+    }
+
+
+
+    @GetMapping("/delete/{orderId}")
+    public Result delete(@PathVariable String orderId) {
+        if (orderService.removeById(orderId)) {
+            return Result.success();
+        }
+        return Result.error();
+    }
+
+    @PostMapping("/update")
+    public Result update(@RequestBody Order order) {
+        if (orderService.updateById(order)) {
+            return Result.success();
+        }
+        return Result.error();
+    }
+
+    @GetMapping("/num/{day}")
+    public Result orderNum(@PathVariable("day") String day){
+
+      List<Order> orderList=orderService.getDayNum(day);
+
+      BigDecimal reduce = orderList.stream().map(Order::getTotalFee).reduce(BigDecimal.valueOf(0),BigDecimal::add);
+
+      return Result.success().data("consumerNum",reduce).data("orderNum",orderList.size());
+    }
 }
 

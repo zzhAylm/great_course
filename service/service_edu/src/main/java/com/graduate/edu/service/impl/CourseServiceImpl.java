@@ -75,7 +75,7 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
         BeanUtils.copyProperties(course, courseInfoVo);
 
         CourseDescription courseDescription = courseDescriptionService.getById(courseId);
-        courseInfoVo.setDescription(courseDescription.getDescription());
+        courseInfoVo.setDescription(courseDescription!=null?courseDescription.getDescription():null);
         return courseInfoVo;
     }
 
